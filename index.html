@@ -39,7 +39,7 @@ body {
 /* ===== HEADER ===== */
 /* Header with background image (fills area behind heading) */
 header {
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.12)), url("https://media.istockphoto.com/id/538703639/photo/varanasi-panorama.jpg?s=612x612&w=0&k=20&c=uWPg22ZHtRcFAaMrZwiEuvqnzQYoV3p7uC7hLrG8SWM=");
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.12));
     background-size: cover;
     background-position: center top;
     color: white;
@@ -679,32 +679,32 @@ footer {
 const destinations = [
     {
         name: "Varanasi (Banaras)",
-        image: "https://assets.cntraveller.in/photos/65eae9f9c27181274651695a/16:9/w_5616,h_3159,c_limit/GettyImages-557386797.jpg",
+        image: "",
         alt: "Varanasi",
         description: "The spiritual capital of India, home to the Ganges River and ancient temples."
     },
     {
         name: "Maihar",
-        image: "https://mpholidays.com/wp-content/uploads/2023/01/Maihar.jpg",
+        image: "",
         alt: "Maihar",
         description: "A sacred town in Madhya Pradesh, famous for its ancient temples and spiritual significance."
     },
     {
         name: "Prayagraj",
-        image: "https://media.istockphoto.com/id/525109131/photo/big-wooden-boats-in-water-with-cloudy-sky-and-sunbeams.jpg?s=612x612&w=0&k=20&c=CRZMBq4iM-nMO2l4ALGM6mVDGiCMmEPjgreLrbd_U84=",
+        image: "",
         alt: "Prayagraj",
         description: "The holy city where three rivers meet, site of the famous Kumbh Mela and ancient ghats."
     },
     {
         name: "Vindhyachal Dham",
-        image: "https://www.thestatesman.com/wp-content/uploads/2025/09/IMG_9653.webp",
+        image: "",
         alt: "Vindhyachal Dham",
         description: "Sacred shrine dedicated to Maa Vindhyavasini, surrounded by spiritual energy and ancient hills."
     }
     ,
     {
         name: "Ayodhya",
-        image: "https://media.cnn.com/api/v1/images/stellar/prod/240123131600-09-ayodhya-temple-india.jpg?c=original",
+        image: "",
         alt: "Ayodhya",
         description: "The ancient city of Lord Rama, famed for its temples, ghats, and spiritual heritage."
     }
@@ -722,8 +722,9 @@ function renderDestinations() {
     destinations.forEach(dest => {
         const card = document.createElement('div');
         card.className = 'card';
+        const imageHtml = dest.image ? `<img src="${dest.image}" alt="${dest.alt}">` : '';
         card.innerHTML = `
-            <img src="${dest.image}" alt="${dest.alt}">
+            ${imageHtml}
             <h3>${dest.name}</h3>
             <p>${dest.description}</p>
             <button onclick="selectDestination('${dest.name}')">Explore</button>
