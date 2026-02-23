@@ -753,10 +753,21 @@ function selectPackage(type) {
     window.location.href = "#booking";
 }
 
+function removeDurationRow(button) {
+    const durationList = document.getElementById('durationList');
+    if (!durationList) return;
+
+    const rows = durationList.querySelectorAll('.duration-row');
+    if (rows.length <= 1) return;
+
+    const row = button.closest('.duration-row');
+    if (row) row.remove();
+}
+
 const GOOGLE_SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwuVr7hrtyZmcZJv5IRHLSaw0BqpB9S1-deFj28_jLoI5uXzfSDL1Iz1nXvD6rDTovnpg/exec";
 
 async function bookTrip(event) {
-    event.preventDefault();
+    if (event) event.preventDefault();
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
