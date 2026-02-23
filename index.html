@@ -753,8 +753,42 @@ function selectPackage(type) {
     window.location.href = "#booking";
 }
 
-const GOOGLE_SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwuVr7hrtyZmcZJv5IRHLSaw0BqpB9S1-deFj28_jLoI5uXzfSDL1Iz1nXvD6rDTovnpg/exec";
+<script>
+const GOOGLE_SHEET_ENDPOINT =
+"https://script.google.com/macros/s/AKfycby7HsOK29xQC-l-tzcbekaqDrg8x5lz3e2ZDl9icbI8DJXXkdXpcgU1pKaNJSYlHhQ/exec";
 
+async function bookTrip(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const tourType = document.getElementById("tourType").value;
+  const destination = document.getElementById("destination").value;
+  const travelDate = document.getElementById("travelDate").value;
+
+  try {
+    const response = await fetch(GOOGLE_SHEET_ENDPOINT, {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        tourType,
+        destination,
+        travelDate
+      }),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    alert("Booking Successful ✅");
+    document.getElementById("bookingForm").reset();
+
+  } catch (error) {
+    alert("Booking Failed ❌");
+  }
+}
+</script>
 async function bookTrip(event) {
     event.preventDefault();
 
