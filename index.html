@@ -21,6 +21,7 @@
     --light: #F8F9FA;
     --text: #333333;
     --border: #E0E0E0;
+}
 
 
 html {
@@ -575,7 +576,7 @@ footer {
 
 <section id="booking">
     <h2>Book Your Spiritual Journey</h2>
-    <form onsubmit="return bookTrip()">
+    <form onsubmit="bookTrip(event)">
         <div class="form-group">
             <label for="name">Full Name *</label>
             <input type="text" id="name" placeholder="Enter your name" required>
@@ -752,14 +753,21 @@ function selectPackage(type) {
     window.location.href = "#booking";
 }
 
-function bookTrip() {
+const GOOGLE_SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwuVr7hrtyZmcZJv5IRHLSaw0BqpB9S1-deFj28_jLoI5uXzfSDL1Iz1nXvD6rDTovnpg/exec";
+
+async function bookTrip(event) {
+    event.preventDefault();
+
     const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
     const tourType = document.getElementById("tourType").value;
     const destination = document.getElementById("destination").value;
+    const travelDate = document.getElementById("travelDate").value;
 
     if(tourType === "" || destination === "") {
         alert("Please select tour type and destination!");
-        return false;
+        return;
     }
     // collect durations
     const durationRows = document.querySelectorAll('.duration-row');
@@ -773,8 +781,34 @@ function bookTrip() {
 
     const durText = durations.join(' ; ');
 
-    alert("Thank you " + name + "! Your " + tourType + " tour to " + destination + " for " + durText + " has been received. Our team will contact you soon.");
-    return false;
+    const payload = {
+        name,
+        email,
+        phone,
+        tourType,
+        destination,
+        travelDate,
+        duration: durText
+    };
+
+    try {
+        const response = await fetch(GOOGLE_SHEET_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error("Unable to submit booking");
+        }
+
+        alert("Thank you " + name + "! Your " + tourType + " tour to " + destination + " for " + durText + " has been received. Our team will contact you soon.");
+        document.querySelector('#booking form').reset();
+    } catch (error) {
+        alert("Booking submission failed. Please try again.");
+    }
 }
 </script>
 
@@ -825,7 +859,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-</script>
 </script>
 
 <!-- ===== ABOUT SECTION ===== -->
