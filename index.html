@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kashi ke Vasi - Your Gateway to India's Spiritual Heart</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #FF9933;
+    --secondary: #2a54c7;
+    --dark: #2C3E50;
+    --light: #F8F9FA;
+    --text: #333333;
+    --border: #E0E0E0;
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff8f0 0%, #f0f8f5 50%, #fff5f0 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+/* Header with background image (fills area behind heading) */
+header {
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.12)), url("https://media.istockphoto.com/id/538703639/photo/varanasi-panorama.jpg?s=612x612&w=0&k=20&c=uWPg22ZHtRcFAaMrZwiEuvqnzQYoV3p7uC7hLrG8SWM=");
+    background-size: cover;
+    background-position: center top;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.45);
+}
+
+header p {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.95);
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    background: var(--secondary);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 16px 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFD700;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #FFD700;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== MOBILE NAV & RESPONSIVE ===== */
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: var(--dark);
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+#home {
+    text-align: center;
+}
+
+#home h2 {
+    margin-bottom: 8px;
+}
+
+#home > p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+/* Reduce gap before destinations */
+#destinations {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/* ===== DESTINATIONS ===== */
+.destinations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    padding: 20px 20px 10px;
+    font-size: 20px;
+    margin: 0;
+}
+
+.card p {
+    padding: 0 20px;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.card button {
+    width: calc(100% - 40px);
+    margin: 20px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background: #E68A2A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 153, 51, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ===== TOUR PACKAGES ===== */
+.packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.package-card {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.package-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateX(5px);
+}
+
+.package-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.package-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.package-card ul {
+    list-style: none;
+    margin: 25px 0;
+}
+
+.package-card li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+}
+
+.package-card li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* ===== BOOKING FORM ===== */
+#booking {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 50px;
+}
+
+form {
+    max-width: 500px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Duration controls */
+.duration-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.duration-row label { font-size: 14px; display:flex; align-items:center; gap:8px; }
+.remove-duration {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.remove-duration:hover { background: #f5f5f5; }
+
+@media (max-width: 640px) {
+    .duration-row { flex-direction: column; align-items: stretch; }
+    .duration-row label { width: 100%; }
+    .duration-row input { width: 100%; box-sizing: border-box; }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-size: 14px;
+}
+
+input, select {
+    padding: 12px 15px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.1);
+}
+
+form button {
+    margin-top: 20px;
+    padding: 14px;
+    font-size: 16px;
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 50px;
+    text-align: center;
+}
+
+#contact p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+/* ===== CONTACT WIDGET ===== */
+.contact-widget {
+    position: relative;
+    display: inline-block;
+}
+.contact-toggle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #f2942e);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.contact-toggle:active { transform: scale(0.96); }
+.contact-options {
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    padding: 12px;
+    min-width: 220px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 120;
+}
+.contact-options.show { display: flex; }
+.contact-option {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background 0.12s ease;
+    text-decoration: none;
+    color: var(--dark);
+}
+.contact-option:hover { background: #f7f7f7; }
+.contact-option .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+.icon-phone { background: var(--secondary); }
+.icon-wa { background: #1e88e5; }
+.icon-mail { background: #FF9933; }
+.icon-insta { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; }
+
+/* Floating contact position */
+.contact-float { position: fixed; left: 18px; bottom: 22px; z-index: 220; }
+.contact-float .contact-toggle { width: 56px; height: 56px; font-size: 22px; }
+.contact-float .contact-options { right: auto; left: 72px; bottom: 0; }
+
+
+#contact a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#contact a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--secondary);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 900px) {
+    header h1 { font-size: 40px; }
+    h2 { font-size: 34px; }
+}
+
+@media (max-width: 640px) {
+    header { padding: 28px 16px; }
+    header h1 { font-size: 28px; }
+    header p { font-size: 14px; }
+    nav { padding: 0 10px; }
+    .nav-toggle { display: block; }
+    .nav-links { display: none; flex-direction: column; width: 100%; }
+    .nav-links.show { display: flex; }
+    nav a { padding: 12px 14px; }
+    section { padding: 30px 12px; }
+    .card img { height: 160px; }
+    .package-card { padding: 20px; }
+    form { max-width: 100%; margin: 20px auto 0; padding: 0 10px; }
+}
+
+@media (max-width: 400px) {
+    header h1 { font-size: 22px; }
+    h2 { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🕉️ Kashi ke Vasi</h1>
+    <p>Your Gateway to India's Spiritual Heart</p>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#packages">Tour Packages</a>
+            <a href="#booking">Booking</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<section id="home">
+    <h2>Discover the Divine City of Kashi</h2>
+    <p>Experience the spiritual essence of Varanasi with our authentic group and individual tour packages.</p>
+</section>
+
+<section id="destinations">
+    <h2>Popular Destinations from Kashi</h2>
+    <div class="destinations" id="destinationsContainer"></div>
+</section>
+
+<section id="packages">
+    <h2>Our Tour Packages</h2>
+    <div class="packages">
+        <div class="package-card">
+            <h3>Individual Tours</h3>
+            <p>Personalized experiences tailored to your interests and schedule.</p>
+            <ul>
+                <li>Private guided tours</li>
+                <li>Custom itineraries</li>
+                <li>Flexible timings</li>
+                <li>Small group options available</li>
+            </ul>
+            <button onclick="selectPackage('Individual')">Book Individual Tour</button>
+        </div>
+
+        <div class="package-card">
+            <h3>Group Tours</h3>
+            <p>Join fellow travelers for shared adventures and cultural immersion.</p>
+            <ul>
+                <li>Fixed departure dates</li>
+                <li>Cost-effective pricing</li>
+                <li>Social experience</li>
+                <li>Minimum 4-15 participants</li>
+            </ul>
+            <button onclick="selectPackage('Group')">Book Group Tour</button>
+        </div>
+    </div>
+</section>
+
+<section id="booking">
+    <h2>Book Your Spiritual Journey</h2>
+    <form onsubmit="return bookTrip()">
+        <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" placeholder="+91 XXXXXXXXXX" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tourType">Tour Type *</label>
+            <select id="tourType" required>
+                <option value="">-- Select Tour Type --</option>
+                <option value="Individual">Individual Tour</option>
+                <option value="Group">Group Tour</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="durationSection">
+            <label>Booking Duration(s) *</label>
+            <div id="durationList">
+                <div class="duration-row">
+                    <label>Days <input type="number" class="dur-days" min="1" value="1" required></label>
+                    <label>Nights <input type="number" class="dur-nights" min="0" value="0" required></label>
+                    <label><input type="checkbox" class="dur-flex"> Flexible dates</label>
+                    <button type="button" class="remove-duration" onclick="removeDurationRow(this)" style="display:none">Remove</button>
+                </div>
+            </div>
+            <!-- single duration row only (mobile-friendly) -->
+        </div>
+
+        <div class="form-group">
+            <label for="destination">Destination *</label>
+            <select id="destination" required>
+                <option value="">-- Select Destination --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="travelDate">Travel Date *</label>
+            <input type="date" id="travelDate" required>
+        </div>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+</section>
+
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <p style="font-size: 16px; margin-top: 20px;">📍 <strong>Location:</strong> Based in Kashi (Varanasi), Uttar Pradesh, India</p>
+
+    <div style="margin-top:14px; text-align:left; max-width:640px; margin-left:auto; margin-right:auto;">
+        <p style="font-size:16px; margin:6px 0;">📧 <strong>Email:</strong> <a href="mailto:info@kashikevasi.com">info@kashikevasi.com</a></p>
+        <p style="font-size:16px; margin:6px 0;">📞 <strong>Phone:</strong> <a href="tel:+916378428277">+91 6378428277</a></p>
+        <p style="font-size:16px; margin:6px 0;">💬 <strong>WhatsApp:</strong> <a href="https://wa.me/6378428277" target="_blank">Chat with us</a></p>
+    </div>
+
+    <div class="contact-widget" aria-label="Contact options">
+        <button class="contact-toggle" id="contactToggle" aria-expanded="false" aria-label="Open contact options">📞</button>
+
+        <div class="contact-options" id="contactOptions" role="menu" aria-hidden="true">
+            <a class="contact-option" href="tel:+916378428277" role="menuitem">
+                <span class="icon icon-phone">📱</span>
+                <span><strong>Call Us</strong><br><small>+91 6378428277</small></span>
+            </a>
+
+            <a class="contact-option" href="https://wa.me/6378428277" target="_blank" role="menuitem">
+                <span class="icon icon-wa">💬</span>
+                <span><strong>WhatsApp</strong><br><small>Chat with us</small></span>
+            </a>
+
+            <a class="contact-option" href="mailto:info@kashikevasi.com" role="menuitem">
+                <span class="icon icon-mail">✉️</span>
+                <span><strong>Email</strong><br><small>info@kashikevasi.com</small></span>
+            </a>
+
+            <a class="contact-option" href="https://instagram.com/" target="_blank" role="menuitem">
+                <span class="icon icon-insta">📸</span>
+                <span><strong>Instagram</strong><br><small>@kashikevasi</small></span>
+            </a>
+        </div>
+    </div>
+
+    <p style="margin-top:18px;">🕒 <strong>Office Hours:</strong> 9 AM - 6 PM IST (Mon - Sat)</p>
+
+</section>
+
+<footer>
+    <p>&copy; 2026 Kashi ke Vasi. All Rights Reserved. | Experience the Divine in India's Holy City</p>
+</footer>
+
+<script>
+// Destination data
+const destinations = [
+    {
+        name: "Varanasi (Banaras)",
+        image: "https://assets.cntraveller.in/photos/65eae9f9c27181274651695a/16:9/w_5616,h_3159,c_limit/GettyImages-557386797.jpg",
+        alt: "Varanasi",
+        description: "The spiritual capital of India, home to the Ganges River and ancient temples."
+    },
+    {
+        name: "Maihar",
+        image: "https://mpholidays.com/wp-content/uploads/2023/01/Maihar.jpg",
+        alt: "Maihar",
+        description: "A sacred town in Madhya Pradesh, famous for its ancient temples and spiritual significance."
+    },
+    {
+        name: "Prayagraj",
+        image: "https://media.istockphoto.com/id/525109131/photo/big-wooden-boats-in-water-with-cloudy-sky-and-sunbeams.jpg?s=612x612&w=0&k=20&c=CRZMBq4iM-nMO2l4ALGM6mVDGiCMmEPjgreLrbd_U84=",
+        alt: "Prayagraj",
+        description: "The holy city where three rivers meet, site of the famous Kumbh Mela and ancient ghats."
+    },
+    {
+        name: "Vindhyachal Dham",
+        image: "https://www.thestatesman.com/wp-content/uploads/2025/09/IMG_9653.webp",
+        alt: "Vindhyachal Dham",
+        description: "Sacred shrine dedicated to Maa Vindhyavasini, surrounded by spiritual energy and ancient hills."
+    }
+    ,
+    {
+        name: "Ayodhya",
+        image: "https://media.cnn.com/api/v1/images/stellar/prod/240123131600-09-ayodhya-temple-india.jpg?c=original",
+        alt: "Ayodhya",
+        description: "The ancient city of Lord Rama, famed for its temples, ghats, and spiritual heritage."
+    }
+];
+
+// Initialize destination cards and dropdown on page load
+document.addEventListener('DOMContentLoaded', function() {
+    renderDestinations();
+    populateDestinationDropdown();
+});
+
+// Render destination cards dynamically
+function renderDestinations() {
+    const container = document.getElementById('destinationsContainer');
+    destinations.forEach(dest => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <img src="${dest.image}" alt="${dest.alt}">
+            <h3>${dest.name}</h3>
+            <p>${dest.description}</p>
+            <button onclick="selectDestination('${dest.name}')">Explore</button>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Populate destination dropdown
+function populateDestinationDropdown() {
+    const select = document.getElementById('destination');
+    destinations.forEach(dest => {
+        const option = document.createElement('option');
+        option.value = dest.name;
+        option.textContent = dest.name;
+        select.appendChild(option);
+    });
+}
+
+function selectDestination(place) {
+    document.getElementById("destination").value = place;
+    window.location.href = "#booking";
+}
+
+function selectPackage(type) {
+    document.getElementById("tourType").value = type;
+    window.location.href = "#booking";
+}
+
+function bookTrip() {
+    const name = document.getElementById("name").value;
+    const tourType = document.getElementById("tourType").value;
+    const destination = document.getElementById("destination").value;
+
+    if(tourType === "" || destination === "") {
+        alert("Please select tour type and destination!");
+        return false;
+    }
+    // collect durations
+    const durationRows = document.querySelectorAll('.duration-row');
+    const durations = [];
+    durationRows.forEach(row => {
+        const days = row.querySelector('.dur-days').value;
+        const nights = row.querySelector('.dur-nights').value;
+        const flex = row.querySelector('.dur-flex').checked;
+        durations.push(days + ' day(s) / ' + nights + ' night(s)' + (flex ? ' (Flexible)' : ''));
+    });
+
+    const durText = durations.join(' ; ');
+
+    alert("Thank you " + name + "! Your " + tourType + " tour to " + destination + " for " + durText + " has been received. Our team will contact you soon.");
+    return false;
+}
+</script>
+
+<script>
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if(toggle && links) {
+        toggle.addEventListener('click', function() {
+            links.classList.toggle('show');
+        });
+    }
+});
+</script>
+<script>
+// Contact widget toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const ctrToggle = document.getElementById('contactToggle');
+    const ctrOptions = document.getElementById('contactOptions');
+
+    function openContact() {
+        ctrOptions.classList.add('show');
+        ctrToggle.setAttribute('aria-expanded', 'true');
+        ctrOptions.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeContact() {
+        ctrOptions.classList.remove('show');
+        ctrToggle.setAttribute('aria-expanded', 'false');
+        ctrOptions.setAttribute('aria-hidden', 'true');
+    }
+
+    if(ctrToggle && ctrOptions) {
+        ctrToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if(ctrOptions.classList.contains('show')) closeContact(); else openContact();
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function(e) {
+            if(!ctrOptions.contains(e.target) && e.target !== ctrToggle) closeContact();
+        });
+
+        // Close on escape
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'Escape') closeContact();
+        });
+    }
+});
+</script>
+</script>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" style="padding: 60px 20px; background-color: rgba(255, 153, 51, 0.1); margin: 40px 0;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="text-align: center; color: var(--secondary); font-size: 2.5em; margin-bottom: 30px;">About Kashi Ke Vasi Travel Agency</h2>
+        
+        <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 15px;">Welcome to Kashi Ke Vasi Travel Agency, your trusted partner for unforgettable travel experiences. Based in the heart of Varanasi, we specialize in crafting personalized journeys that connect you with the rich cultural heritage, spiritual essence, and natural beauty of India and beyond.</p>
+        
+        <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 15px;">Founded with a passion for exploration and a commitment to excellence, our team of experienced travel experts has been helping travelers discover the wonders of destinations like the holy city of Kashi (Varanasi), the majestic Himalayas, the serene backwaters of Kerala, and vibrant cities across the globe.</p>
+        
+        <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 15px;">At Kashi Ke Vasi, we believe that every journey is a story waiting to be told. Whether you're seeking spiritual enlightenment, adventure, relaxation, or cultural immersion, we tailor our services to meet your unique needs and preferences.</p>
+        
+        <h3 style="color: var(--primary); margin-top: 25px;">Our Services Include:</h3>
+        <ul style="font-size: 1.05em; line-height: 1.8;">
+            <li>Customized tour packages</li>
+            <li>Flight and hotel bookings</li>
+            <li>Guided tours and excursions</li>
+            <li>Visa assistance</li>
+            <li>24/7 customer support</li>
+        </ul>
+        
+        <p style="font-size: 1.1em; line-height: 1.8; margin-top: 25px;">Join thousands of satisfied travelers who have chosen Kashi Ke Vasi for their dream vacations. Let us turn your travel dreams into reality!</p>
+    </div>
+</section>
+
+<!-- ===== CLIENT REVIEWS SECTION ===== -->
+<section id="reviews" style="padding: 60px 20px; background-color: #fff; margin: 40px 0;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="text-align: center; color: var(--secondary); font-size: 2.5em; margin-bottom: 30px;">Client Reviews</h2>
+        
+        <div style="border-bottom: 1px solid #ddd; padding: 15px 0; margin-bottom: 15px;">
+            <div style="font-weight: bold; font-size: 1.1em;">Priya Sharma</div>
+            <div style="color: #ffcc00; margin: 5px 0;">★★★★★</div>
+            <p style="margin: 10px 0;">'Kashi Ke Vasi made our family trip to Varanasi absolutely magical. The attention to detail and the knowledgeable guides were exceptional. Highly recommended!'</p>
+        </div>
+        
+        <div style="border-bottom: 1px solid #ddd; padding: 15px 0; margin-bottom: 15px;">
+            <div style="font-weight: bold; font-size: 1.1em;">Rajesh Kumar</div>
+            <div style="color: #ffcc00; margin: 5px 0;">★★★★★</div>
+            <p style="margin: 10px 0;">'I booked a Himalayan trek through them, and it was the adventure of a lifetime. Professional service from start to finish. Will definitely travel with them again.'</p>
+        </div>
+        
+        <div style="border-bottom: 1px solid #ddd; padding: 15px 0; margin-bottom: 15px;">
+            <div style="font-weight: bold; font-size: 1.1em;">Anjali Patel</div>
+            <div style="color: #ffcc00; margin: 5px 0;">★★★★☆</div>
+            <p style="margin: 10px 0;">'Great experience with Kashi Ke Vasi for our honeymoon in Kerala. The backwater cruise was breathtaking. Only minor issue with flight delay, but they handled it well.'</p>
+        </div>
+        
+        <div style="border-bottom: 1px solid #ddd; padding: 15px 0; margin-bottom: 15px;">
+            <div style="font-weight: bold; font-size: 1.1em;">Vikram Singh</div>
+            <div style="color: #ffcc00; margin: 5px 0;">★★★★★</div>
+            <p style="margin: 10px 0;">'As a solo traveler, I felt safe and well-cared for throughout my journey. The agency's local insights made all the difference. Thank you!'</p>
+        </div>
+        
+        <div style="padding: 15px 0;">
+            <div style="font-weight: bold; font-size: 1.1em;">Meera Joshi</div>
+            <div style="color: #ffcc00; margin: 5px 0;">★★★★★</div>
+            <p style="margin: 10px 0;">'Our group tour to Rajasthan was perfectly organized. From the palaces to the deserts, every moment was memorable. Excellent value for money.'</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
